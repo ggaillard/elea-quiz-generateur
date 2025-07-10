@@ -4,7 +4,28 @@ import { Quiz, QuestionUnion, NotificationMessage } from '../types';
 import { storageService } from '../services/storage';
 import { generateId } from '../utils';
 
+interface QuizContextType {
+  state: QuizState;
+  createQuiz: (name: string, description?: string) => Promise<void>;
+  loadQuiz: (id: string) => Promise<void>;
+  updateQuiz: (quiz: Quiz) => Promise<void>;
+  saveCurrentQuiz: () => Promise<void>;
+  deleteQuiz: (id: string) => Promise<void>;
+  loadQuizzes: () => Promise<void>;
+  addQuestion: (question: QuestionUnion) => Promise<void>;
+  updateQuestion: (question: QuestionUnion) => Promise<void>;
+  deleteQuestion: (questionId: string) => Promise<void>;
+  selectQuestion: (questionId: string | null) => void;
+  addNotification: (notification: Omit<NotificationMessage, 'id'>) => void;
+  removeNotification: (id: string) => void;
+  exportData: () => string;
+  importData: (jsonData: string) => Promise<void>;
+}
+
+export const QuizContext = createContext<QuizContextType | undefined>(undefined);
+
 interface QuizState {
+  activeQuiz: Quiz | null;
   currentQuiz: Quiz | null;
   quizzes: Quiz[];
   selectedQuestionId: string | null;
@@ -29,6 +50,7 @@ type QuizAction =
   | { type: 'REMOVE_NOTIFICATION'; payload: string };
 
 const initialState: QuizState = {
+  activeQuiz: null,
   currentQuiz: null,
   quizzes: [],
   selectedQuestionId: null,
@@ -46,7 +68,7 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
       return { ...state, error: action.payload };
 
     case 'SET_CURRENT_QUIZ':
-      return { ...state, currentQuiz: action.payload };
+      return { ...state, currentQuiz: action.payload, activeQuiz: action.payload };
 
     case 'SET_QUIZZES':
       return { ...state, quizzes: action.payload };
@@ -148,6 +170,7 @@ interface QuizContextType {
   // Quiz actions
   createQuiz: (name: string, description?: string) => Promise<void>;
   loadQuiz: (id: string) => Promise<void>;
+  updateQuiz: (quiz: Quiz) => Promise<void>;
   saveCurrentQuiz: () => Promise<void>;
   deleteQuiz: (id: string) => Promise<void>;
   loadQuizzes: () => Promise<void>;
@@ -166,8 +189,6 @@ interface QuizContextType {
   exportData: () => string;
   importData: (jsonData: string) => Promise<void>;
 }
-
-const QuizContext = createContext<QuizContextType | undefined>(undefined);
 
 export function QuizProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(quizReducer, initialState);
@@ -250,6 +271,26 @@ export function QuizProvider({ children }: { children: ReactNode }) {
       });
     } finally {
       dispatch({ type: 'SET_LOADING', payload: false });
+    }
+  }, []);
+
+  const updateQuiz = useCallback(async (quiz: Quiz) => {
+    try {
+      storageService.saveQuiz(quiz);
+      dispatch({ type: 'UPDATE_QUIZ', payload: quiz });
+      
+      addNotification({
+        type: 'success',
+        title: 'Quiz mis à jour',
+        message: 'Le quiz a été mis à jour avec succès'
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Erreur inconnue';
+      addNotification({
+        type: 'error',
+        title: 'Erreur',
+        message: `Impossible de mettre à jour le quiz: ${message}`
+      });
     }
   }, []);
 
@@ -435,6 +476,7 @@ export function QuizProvider({ children }: { children: ReactNode }) {
       state,
       createQuiz,
       loadQuiz,
+      updateQuiz,
       saveCurrentQuiz,
       deleteQuiz,
       loadQuizzes,

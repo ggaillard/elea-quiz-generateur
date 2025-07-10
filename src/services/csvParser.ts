@@ -1,5 +1,5 @@
 import * as Papa from 'papaparse';
-import { QuestionUnion, McqQuestion, TrueFalseQuestion, ShortAnswerQuestion, MatchingQuestion, CsvTemplate, ImportResult, ValidationError } from '../types';
+import { QuestionUnion, McqQuestion, TrueFalseQuestion, ShortAnswerQuestion, MatchingQuestion, CsvTemplate, ImportResult, ValidationError, Quiz } from '../types';
 import { generateId, validateQuestion } from '../utils';
 
 export class CsvParserService {
@@ -428,4 +428,100 @@ Instructions pour l'import CSV :
 
     return options;
   }
+}
+
+/**
+ * Fonction d'export pour générer du CSV depuis un quiz
+ */
+export function generateCSV(quiz: Quiz, settings?: any): string {
+  const headers = [
+    'Type',
+    'Titre',
+    'Question',
+    'Note',
+    'Pénalité',
+    'Feedback général',
+    'Tags',
+    'Réponse 1',
+    'Fraction 1',
+    'Feedback 1',
+    'Réponse 2',
+    'Fraction 2',
+    'Feedback 2',
+    'Réponse 3',
+    'Fraction 3',
+    'Feedback 3',
+    'Réponse 4',
+    'Fraction 4',
+    'Feedback 4',
+    'Réponse 5',
+    'Fraction 5',
+    'Feedback 5',
+    'Options spéciales'
+  ];
+
+  const rows = quiz.questions.map(question => {
+    const baseData: Record<string, string> = {
+      'Type': question.type,
+      'Titre': question.title,
+      'Question': question.text,
+      'Note': question.defaultGrade?.toString() || '1',
+      'Pénalité': question.penalty?.toString() || '0',
+      'Feedback général': question.generalFeedback || '',
+      'Tags': question.tags?.join(',') || '',
+      'Options spéciales': ''
+    };
+
+    // Initialiser les colonnes de réponses
+    for (let i = 1; i <= 5; i++) {
+      baseData[`Réponse ${i}`] = '';
+      baseData[`Fraction ${i}`] = '';
+      baseData[`Feedback ${i}`] = '';
+    }
+
+    // Ajouter les réponses selon le type
+    if (question.type === 'mcq') {
+      const mcq = question as McqQuestion;
+      mcq.answers.forEach((answer, index) => {
+        if (index < 5) {
+          baseData[`Réponse ${index + 1}`] = answer.text;
+          baseData[`Fraction ${index + 1}`] = answer.fraction?.toString() || '0';
+          baseData[`Feedback ${index + 1}`] = answer.feedback || '';
+        }
+      });
+    } else if (question.type === 'truefalse') {
+      const tf = question as TrueFalseQuestion;
+      baseData['Réponse 1'] = 'Vrai';
+      baseData['Fraction 1'] = tf.correctAnswer ? '100' : '0';
+      baseData['Feedback 1'] = tf.trueFeedback || '';
+      baseData['Réponse 2'] = 'Faux';
+      baseData['Fraction 2'] = tf.correctAnswer ? '0' : '100';
+      baseData['Feedback 2'] = tf.falseFeedback || '';
+    } else if (question.type === 'shortanswer') {
+      const sa = question as ShortAnswerQuestion;
+      sa.answers.forEach((answer, index) => {
+        if (index < 5) {
+          baseData[`Réponse ${index + 1}`] = answer.text;
+          baseData[`Fraction ${index + 1}`] = answer.fraction?.toString() || '100';
+          baseData[`Feedback ${index + 1}`] = answer.feedback || '';
+        }
+      });
+    } else if (question.type === 'matching') {
+      const match = question as MatchingQuestion;
+      match.subquestions.forEach((subq, index) => {
+        if (index < 5) {
+          baseData[`Réponse ${index + 1}`] = `${subq.text}:${subq.answerText}`;
+          baseData[`Fraction ${index + 1}`] = '100';
+          baseData[`Feedback ${index + 1}`] = '';
+        }
+      });
+    }
+
+    return baseData;
+  });
+
+  return Papa.unparse({
+    fields: headers,
+    data: rows
+  });
 }

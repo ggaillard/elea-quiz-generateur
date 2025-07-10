@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { useQuiz } from '../contexts/QuizContext';
 import { formatDate } from '../utils';
+import { ExportPanel } from './ExportPanel';
+import { ImportPanel } from './ImportPanel';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -28,6 +30,8 @@ export function Sidebar({ isOpen, onToggle, currentView, onViewChange }: Sidebar
   const [showCreateQuiz, setShowCreateQuiz] = useState(false);
   const [quizName, setQuizName] = useState('');
   const [quizDescription, setQuizDescription] = useState('');
+  const [showExportPanel, setShowExportPanel] = useState(false);
+  const [showImportPanel, setShowImportPanel] = useState(false);
 
   const handleCreateQuiz = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -212,6 +216,36 @@ export function Sidebar({ isOpen, onToggle, currentView, onViewChange }: Sidebar
             ))}
           </div>
         </div>
+      )}
+
+      {/* Import/Export Actions */}
+      {state.currentQuiz && (
+        <div className="p-4 border-t border-gray-200">
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => setShowImportPanel(true)}
+              className="btn btn-ghost btn-sm flex items-center justify-center"
+            >
+              <Upload size={16} />
+              <span className="ml-1">Import</span>
+            </button>
+            <button
+              onClick={() => setShowExportPanel(true)}
+              className="btn btn-ghost btn-sm flex items-center justify-center"
+            >
+              <Download size={16} />
+              <span className="ml-1">Export</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Panels */}
+      {showExportPanel && (
+        <ExportPanel onClose={() => setShowExportPanel(false)} />
+      )}
+      {showImportPanel && (
+        <ImportPanel onClose={() => setShowImportPanel(false)} />
       )}
     </div>
   );

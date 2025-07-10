@@ -267,3 +267,10 @@ export class XmlGeneratorService {
     };
   }
 }
+
+/**
+ * Fonction d'export pour générer le XML Moodle d'un quiz
+ */
+export function generateMoodleXML(quiz: Quiz, settings?: any): string {
+  return XmlGeneratorService.generateMoodleXml(quiz);
+}
