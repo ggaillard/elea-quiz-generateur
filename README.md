@@ -1,5 +1,14 @@
 # Éléa Quiz Générateur 🎯
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/ggaillard/elea-quiz-generateur.svg)](https://github.com/ggaillard/elea-quiz-generateur/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ggaillard/elea-quiz-generateur.svg)](https://github.com/ggaillard/elea-quiz-generateur/network)
+[![GitHub issues](https://img.shields.io/github/issues/ggaillard/elea-quiz-generateur.svg)](https://github.com/ggaillard/elea-quiz-generateur/issues)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/ggaillard/elea-quiz-generateur)
+[![React](https://img.shields.io/badge/React-18.2-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-4.5-646CFF.svg)](https://vitejs.dev/)
+
 Un générateur de QCM moderne et intuitif pour créer des quiz compatibles avec Moodle et Éléa. Cette application web permet de créer, éditer et exporter des quiz avec une interface utilisateur moderne et responsive.
 
 ## 📸 Aperçu Visuel
