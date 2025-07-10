@@ -340,15 +340,6 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 - [TypeScript](https://www.typescriptlang.org/) - Typage statique
 - [PapaParse](https://www.papaparse.com/) - Parser CSV
 
-## 📞 Support
 
-Pour toute question ou problème :
-- Ouvrez une issue sur GitHub
-- Consultez la documentation
-- Vérifiez les exemples fournis dans `/src/data/`
-
----
-
-**Développé avec ❤️ pour l'éducation**
 
 *Version 1.0.0 - Générateur de QCM moderne pour Moodle et Éléa*
