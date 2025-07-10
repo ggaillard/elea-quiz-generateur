@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs:screenshots": "./take-screenshots.sh",
+    "docs:placeholders": "./create-placeholders.sh",
+    "docs:serve": "npm run dev"
   },
   "dependencies": {
     "react": "^18.2.0",
