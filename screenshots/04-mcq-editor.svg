@@ -1,0 +1,134 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arrière-plan -->
+  <rect width="100%" height="100%" fill="#f8fafc"/>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="250" height="600" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Header de la sidebar -->
+  <rect x="16" y="16" width="218" height="60" fill="#0f172a" rx="6"/>
+  <text x="125" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#e2e8f0">Éléa Quiz</text>
+  <text x="125" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">Générateur</text>
+  
+  <!-- Menu items -->
+  <rect x="16" y="90" width="218" height="40" fill="#475569" rx="6"/>
+  <text x="30" y="115" font-family="Arial, sans-serif" font-size="11" fill="#e2e8f0">🏠 Accueil</text>
+  
+  <rect x="16" y="140" width="218" height="40" fill="#3b82f6" rx="6"/>
+  <text x="30" y="165" font-family="Arial, sans-serif" font-size="11" fill="#ffffff">📝 Nouveau Quiz</text>
+  
+  <!-- Zone principale -->
+  <rect x="250" y="0" width="550" height="600" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Header principal -->
+  <rect x="250" y="0" width="550" height="80" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="525" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#1e293b">Éditeur de Questions QCM</text>
+  <text x="525" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Créez des questions à choix multiples avec aperçu temps réel</text>
+  
+  <!-- Panneau éditeur -->
+  <rect x="270" y="100" width="260" height="480" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  
+  <!-- Titre de l'éditeur -->
+  <rect x="280" y="110" width="240" height="30" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="400" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0f172a">🎯 Éditeur QCM</text>
+  
+  <!-- Champs de saisie -->
+  <text x="290" y="165" font-family="Arial, sans-serif" font-size="10" fill="#374151">Titre de la question</text>
+  <rect x="290" y="170" width="220" height="25" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="295" y="185" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">Capitale de la France</text>
+  
+  <text x="290" y="210" font-family="Arial, sans-serif" font-size="10" fill="#374151">Énoncé</text>
+  <rect x="290" y="215" width="220" height="40" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="295" y="230" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">Quelle est la capitale de la France ?</text>
+  
+  <text x="290" y="275" font-family="Arial, sans-serif" font-size="10" fill="#374151">Type de réponse</text>
+  <rect x="290" y="280" width="220" height="25" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="295" y="295" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">🔘 Choix unique</text>
+  
+  <!-- Réponses -->
+  <text x="290" y="320" font-family="Arial, sans-serif" font-size="10" fill="#374151">Réponses</text>
+  
+  <!-- Réponse 1 -->
+  <rect x="290" y="325" width="220" height="30" fill="#dcfce7" stroke="#22c55e" stroke-width="1" rx="4"/>
+  <text x="295" y="340" font-family="Arial, sans-serif" font-size="9" fill="#14532d">✅ Paris (100%)</text>
+  <text x="295" y="350" font-family="Arial, sans-serif" font-size="8" fill="#15803d">Correct!</text>
+  
+  <!-- Réponse 2 -->
+  <rect x="290" y="360" width="220" height="25" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="295" y="375" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">❌ Lyon (0%)</text>
+  
+  <!-- Réponse 3 -->
+  <rect x="290" y="390" width="220" height="25" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="295" y="405" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">❌ Marseille (0%)</text>
+  
+  <!-- Réponse 4 -->
+  <rect x="290" y="420" width="220" height="25" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="295" y="435" font-family="Arial, sans-serif" font-size="9" fill="#6b7280">❌ Toulouse (0%)</text>
+  
+  <!-- Bouton ajouter réponse -->
+  <rect x="290" y="455" width="100" height="25" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="340" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#374151">+ Ajouter</text>
+  
+  <!-- Boutons d'action -->
+  <rect x="290" y="500" width="70" height="30" fill="#3b82f6" rx="4"/>
+  <text x="325" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">Sauvegarder</text>
+  
+  <rect x="370" y="500" width="70" height="30" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="405" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#374151">Aperçu</text>
+  
+  <rect x="450" y="500" width="50" height="30" fill="#ef4444" rx="4"/>
+  <text x="475" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">Reset</text>
+  
+  <!-- Panneau aperçu -->
+  <rect x="550" y="100" width="240" height="480" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  
+  <!-- Titre de l'aperçu -->
+  <rect x="560" y="110" width="220" height="30" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="670" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0f172a">👁️ Aperçu en temps réel</text>
+  
+  <!-- Aperçu de la question -->
+  <rect x="570" y="155" width="200" height="350" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="6"/>
+  
+  <!-- Titre dans l'aperçu -->
+  <text x="670" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#0f172a">Capitale de la France</text>
+  
+  <!-- Énoncé dans l'aperçu -->
+  <text x="580" y="200" font-family="Arial, sans-serif" font-size="10" fill="#374151">Quelle est la capitale de la France ?</text>
+  
+  <!-- Réponses dans l'aperçu -->
+  <rect x="580" y="220" width="180" height="20" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="3"/>
+  <text x="590" y="232" font-family="Arial, sans-serif" font-size="9" fill="#374151">🔘 Paris</text>
+  
+  <rect x="580" y="245" width="180" height="20" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="3"/>
+  <text x="590" y="257" font-family="Arial, sans-serif" font-size="9" fill="#374151">🔘 Lyon</text>
+  
+  <rect x="580" y="270" width="180" height="20" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="3"/>
+  <text x="590" y="282" font-family="Arial, sans-serif" font-size="9" fill="#374151">🔘 Marseille</text>
+  
+  <rect x="580" y="295" width="180" height="20" fill="#ffffff" stroke="#d1d5db" stroke-width="1" rx="3"/>
+  <text x="590" y="307" font-family="Arial, sans-serif" font-size="9" fill="#374151">🔘 Toulouse</text>
+  
+  <!-- Informations dans l'aperçu -->
+  <text x="580" y="340" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Note: 1.0 point</text>
+  <text x="580" y="355" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Pénalité: 0%</text>
+  <text x="580" y="370" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Type: Choix unique</text>
+  
+  <!-- Validation -->
+  <rect x="580" y="390" width="180" height="25" fill="#dcfce7" stroke="#22c55e" stroke-width="1" rx="4"/>
+  <text x="670" y="407" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#14532d">✅ Question valide</text>
+  
+  <!-- Métriques -->
+  <text x="580" y="440" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Caractères: 38/500</text>
+  <text x="580" y="455" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Réponses: 4/10</text>
+  <text x="580" y="470" font-family="Arial, sans-serif" font-size="8" fill="#6b7280">Temps estimé: 30s</text>
+  
+  <!-- Bouton test -->
+  <rect x="560" y="520" width="100" height="25" fill="#10b981" rx="4"/>
+  <text x="610" y="537" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">Tester</text>
+  
+  <rect x="670" y="520" width="100" height="25" fill="#f59e0b" rx="4"/>
+  <text x="720" y="537" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff">XML Preview</text>
+  
+  <!-- Footer -->
+  <text x="525" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9ca3af">Éditeur avec validation temps réel et aperçu interactif</text>
+</svg>
