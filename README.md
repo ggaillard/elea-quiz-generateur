@@ -7,18 +7,22 @@ Un générateur de QCM moderne et intuitif pour créer des quiz compatibles avec
 > **📋 Documentation Complète** : Consultez le [Guide Visuel](VISUAL_GUIDE.md) pour une présentation détaillée avec captures d'écran de toutes les fonctionnalités.
 
 ### Interface Principale
-![Écran d'accueil](screenshots/01-home-screen.png)
+![Écran d'accueil](screenshots/01-home-screen.svg)
 *Interface moderne avec sidebar de navigation et zone de travail principale*
 
 ### Éditeur de Questions
-![Éditeur QCM](screenshots/04-mcq-editor.png)
+![Éditeur QCM](screenshots/04-mcq-editor.svg)
 *Éditeur intuitif avec aperçu en temps réel et validation instantanée*
 
 ### Aperçu Interactif
-![Aperçu Quiz](screenshots/09-quiz-preview.png)
+![Aperçu Quiz](screenshots/09-quiz-preview.svg)
 *Mode test complet avec simulation d'examen et résultats*
 
-**📱 Design Responsive** : L'application s'adapte parfaitement aux mobiles, tablettes et ordinateurs de bureau.
+### Design Responsive
+![Vue Mobile](screenshots/17-mobile-view.svg)
+*Interface mobile optimisée avec navigation tactile intuitive*
+
+**📱 Compatibilité** : L'application s'adapte parfaitement aux mobiles, tablettes et ordinateurs de bureau.
 
 ## ✨ Fonctionnalités
 
