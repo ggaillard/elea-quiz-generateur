@@ -2,6 +2,24 @@
 
 Un générateur de QCM moderne et intuitif pour créer des quiz compatibles avec Moodle et Éléa. Cette application web permet de créer, éditer et exporter des quiz avec une interface utilisateur moderne et responsive.
 
+## 📸 Aperçu Visuel
+
+> **📋 Documentation Complète** : Consultez le [Guide Visuel](VISUAL_GUIDE.md) pour une présentation détaillée avec captures d'écran de toutes les fonctionnalités.
+
+### Interface Principale
+![Écran d'accueil](screenshots/01-home-screen.png)
+*Interface moderne avec sidebar de navigation et zone de travail principale*
+
+### Éditeur de Questions
+![Éditeur QCM](screenshots/04-mcq-editor.png)
+*Éditeur intuitif avec aperçu en temps réel et validation instantanée*
+
+### Aperçu Interactif
+![Aperçu Quiz](screenshots/09-quiz-preview.png)
+*Mode test complet avec simulation d'examen et résultats*
+
+**📱 Design Responsive** : L'application s'adapte parfaitement aux mobiles, tablettes et ordinateurs de bureau.
+
 ## ✨ Fonctionnalités
 
 ### 🎨 Interface Moderne
@@ -228,6 +246,33 @@ npm install -g vercel
 # Déployer
 vercel --prod
 ```
+
+## 📸 Documentation Visuelle
+
+### Captures d'Écran Disponibles
+L'application est entièrement documentée avec des captures d'écran détaillées :
+
+- **Interface Principale** : Écran d'accueil, navigation, création de quiz
+- **Éditeurs de Questions** : QCM, Vrai/Faux, Réponse courte, Appariement
+- **Aperçu et Test** : Prévisualisation, mode test interactif
+- **Import/Export** : Panels d'import/export, génération XML Moodle
+- **Fonctionnalités Avancées** : Drag & drop, recherche, validation temps réel
+- **Design Responsive** : Versions mobile, tablette, desktop
+- **Thèmes** : Mode sombre, haute contraste
+
+### Guide Visuel Complet
+Consultez le **[Guide Visuel](VISUAL_GUIDE.md)** pour :
+- 📋 Descriptions détaillées de chaque fonctionnalité
+- 🎯 Instructions d'utilisation étape par étape
+- 📱 Exemples d'utilisation sur différents appareils
+- 🎨 Variations de thèmes et personnalisation
+
+### Prendre ses Propres Captures
+Instructions complètes dans **[screenshots/README.md](screenshots/README.md)** :
+- 🎯 Scénarios de démonstration
+- 📐 Paramètres recommandés
+- 🔧 Outils d'automatisation
+- ✅ Checklist de qualité
 
 ## 🐛 Résolution des Problèmes
 
