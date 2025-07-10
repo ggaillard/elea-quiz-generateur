@@ -17,9 +17,9 @@
     "elea:deploy": "node scripts/elea-deploy.js",
     "batch:process": "node scripts/batch-process.js",
     "server": "node server/index.js",
-    "mistral:generate": "node scripts/mistral-quiz-generator.js generate",
-    "mistral:models": "node scripts/mistral-quiz-generator.js models",
-    "mistral:init": "node scripts/mistral-quiz-generator.js init",
+    "mistral:generate": "node scripts/mistral-quiz-generator.cjs generate",
+    "mistral:models": "node scripts/mistral-quiz-generator.cjs models",
+    "mistral:init": "node scripts/mistral-quiz-generator.cjs init",
     "mistral:install": "./install-mistral.sh"
   },
   "dependencies": {
