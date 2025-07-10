@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { AIService } from '../services/aiService';
-import { AIProvider } from '../types';
 
 // Mock des modules externes
 vi.mock('@mistralai/mistralai', () => ({
@@ -35,9 +34,12 @@ describe('AIService - Intégration Mistral AI', () => {
   describe('Initialisation du service', () => {
     it('devrait initialiser correctement le service pour Mistral', () => {
       const config = {
-        provider: 'mistral' as AIProvider,
+        provider: 'mistral' as const,
         apiKey: 'test-key',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
@@ -47,9 +49,12 @@ describe('AIService - Intégration Mistral AI', () => {
 
     it('devrait initialiser correctement le service pour OpenAI', () => {
       const config = {
-        provider: 'openai' as AIProvider,
+        provider: 'openai' as const,
         apiKey: 'test-key',
-        model: 'gpt-4'
+        model: 'gpt-4',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
@@ -59,24 +64,30 @@ describe('AIService - Intégration Mistral AI', () => {
 
     it('devrait initialiser correctement le service pour Azure OpenAI', () => {
       const config = {
-        provider: 'azure' as AIProvider,
+        provider: 'azure-openai' as const,
         apiKey: 'test-key',
         endpoint: 'https://test.openai.azure.com',
-        model: 'gpt-4'
+        model: 'gpt-4',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
       expect(aiService).toBeDefined();
-      expect(aiService.config.provider).toBe('azure');
+      expect(aiService.config.provider).toBe('azure-openai');
     });
   });
 
   describe('Génération de quiz avec Mistral', () => {
     it('devrait générer un quiz avec le provider Mistral', async () => {
       const config = {
-        provider: 'mistral' as AIProvider,
+        provider: 'mistral' as const,
         apiKey: 'test-key',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
@@ -99,7 +110,9 @@ describe('AIService - Intégration Mistral AI', () => {
         }]
       };
       
-      vi.mocked(aiService.mistralClient?.chat).mockResolvedValue(mockResponse);
+      const mockChat = vi.fn().mockResolvedValue(mockResponse);
+      // @ts-ignore
+      aiService.mistralClient = { chat: mockChat };
       
       const quiz = await aiService.generateQuiz({
         content: "La France est un pays en Europe. Sa capitale est Paris.",
@@ -116,15 +129,20 @@ describe('AIService - Intégration Mistral AI', () => {
 
     it('devrait gérer les erreurs lors de la génération avec Mistral', async () => {
       const config = {
-        provider: 'mistral' as AIProvider,
+        provider: 'mistral' as const,
         apiKey: 'test-key',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
       
       // Mock d'une erreur
-      vi.mocked(aiService.mistralClient?.chat).mockRejectedValue(new Error('API Error'));
+      const mockChat = vi.fn().mockRejectedValue(new Error('API Error'));
+      // @ts-ignore
+      aiService.mistralClient = { chat: mockChat };
       
       await expect(aiService.generateQuiz({
         content: "Test content",
@@ -138,9 +156,12 @@ describe('AIService - Intégration Mistral AI', () => {
   describe('Validation des réponses', () => {
     it('devrait valider correctement les réponses JSON', () => {
       const config = {
-        provider: 'mistral' as AIProvider,
+        provider: 'mistral' as const,
         apiKey: 'test-key',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
@@ -162,9 +183,12 @@ describe('AIService - Intégration Mistral AI', () => {
 
     it('devrait rejeter les réponses JSON invalides', () => {
       const config = {
-        provider: 'mistral' as AIProvider,
+        provider: 'mistral' as const,
         apiKey: 'test-key',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
@@ -188,9 +212,12 @@ describe('AIService - Intégration Mistral AI', () => {
   describe('Gestion des prompts sécurisés', () => {
     it('devrait utiliser safePrompt pour Mistral quand activé', async () => {
       const config = {
-        provider: 'mistral' as AIProvider,
+        provider: 'mistral' as const,
         apiKey: 'test-key',
         model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9,
         safePrompt: true
       };
       
@@ -213,7 +240,9 @@ describe('AIService - Intégration Mistral AI', () => {
         }]
       };
       
-      vi.mocked(aiService.mistralClient?.chat).mockResolvedValue(mockResponse);
+      const mockChat = vi.fn().mockResolvedValue(mockResponse);
+      // @ts-ignore
+      aiService.mistralClient = { chat: mockChat };
       
       await aiService.generateQuiz({
         content: "Contenu test",
@@ -223,7 +252,7 @@ describe('AIService - Intégration Mistral AI', () => {
       });
       
       // Vérifier que safePrompt a été utilisé dans l'appel
-      expect(aiService.mistralClient?.chat).toHaveBeenCalledWith({
+      expect(mockChat).toHaveBeenCalledWith({
         model: 'mistral-large-latest',
         messages: expect.any(Array),
         safePrompt: true
@@ -234,15 +263,20 @@ describe('AIService - Intégration Mistral AI', () => {
   describe('Gestion des erreurs réseau', () => {
     it('devrait gérer les timeouts', async () => {
       const config = {
-        provider: 'mistral' as AIProvider,
+        provider: 'mistral' as const,
         apiKey: 'test-key',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
       aiService = new AIService(config);
       
       // Mock d'un timeout
-      vi.mocked(aiService.mistralClient?.chat).mockRejectedValue(new Error('timeout'));
+      const mockChat = vi.fn().mockRejectedValue(new Error('timeout'));
+      // @ts-ignore
+      aiService.mistralClient = { chat: mockChat };
       
       await expect(aiService.generateQuiz({
         content: "Test",

@@ -1,0 +1,135 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" fill="#1e293b" font-size="22" font-weight="bold">Comparaison des Providers IA</text>
+  
+  <!-- Header Row -->
+  <rect x="50" y="60" width="150" height="40" fill="#1e293b" rx="5"/>
+  <text x="125" y="85" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Critères</text>
+  
+  <rect x="200" y="60" width="150" height="40" fill="#10b981" rx="5"/>
+  <text x="275" y="85" text-anchor="middle" fill="white" font-size="14" font-weight="bold">OpenAI</text>
+  
+  <rect x="350" y="60" width="150" height="40" fill="#3b82f6" rx="5"/>
+  <text x="425" y="85" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Azure OpenAI</text>
+  
+  <rect x="500" y="60" width="150" height="40" fill="#ff7000" rx="5"/>
+  <text x="575" y="85" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Mistral AI</text>
+  
+  <!-- Rows -->
+  <!-- Performance -->
+  <rect x="50" y="100" width="150" height="35" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="125" y="122" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">Performance</text>
+  
+  <rect x="200" y="100" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="275" y="122" text-anchor="middle" fill="#10b981" font-size="12">⭐⭐⭐⭐⭐</text>
+  
+  <rect x="350" y="100" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="425" y="122" text-anchor="middle" fill="#3b82f6" font-size="12">⭐⭐⭐⭐⭐</text>
+  
+  <rect x="500" y="100" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="575" y="122" text-anchor="middle" fill="#ff7000" font-size="12">⭐⭐⭐⭐</text>
+  
+  <!-- Coût -->
+  <rect x="50" y="135" width="150" height="35" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="125" y="157" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">Coût</text>
+  
+  <rect x="200" y="135" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="275" y="157" text-anchor="middle" fill="#10b981" font-size="12">💰💰💰</text>
+  
+  <rect x="350" y="135" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="425" y="157" text-anchor="middle" fill="#3b82f6" font-size="12">💰💰💰💰</text>
+  
+  <rect x="500" y="135" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="575" y="157" text-anchor="middle" fill="#ff7000" font-size="12">💰💰</text>
+  
+  <!-- Sécurité -->
+  <rect x="50" y="170" width="150" height="35" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="125" y="192" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">Sécurité</text>
+  
+  <rect x="200" y="170" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="275" y="192" text-anchor="middle" fill="#10b981" font-size="12">🔒🔒🔒</text>
+  
+  <rect x="350" y="170" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="425" y="192" text-anchor="middle" fill="#3b82f6" font-size="12">🔒🔒🔒🔒🔒</text>
+  
+  <rect x="500" y="170" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="575" y="192" text-anchor="middle" fill="#ff7000" font-size="12">🔒🔒🔒🔒</text>
+  
+  <!-- Conformité EU -->
+  <rect x="50" y="205" width="150" height="35" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="125" y="227" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">Conformité EU</text>
+  
+  <rect x="200" y="205" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="275" y="227" text-anchor="middle" fill="#10b981" font-size="12">🇺🇸 Limitée</text>
+  
+  <rect x="350" y="205" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="425" y="227" text-anchor="middle" fill="#3b82f6" font-size="12">🇪🇺 Partielle</text>
+  
+  <rect x="500" y="205" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="575" y="227" text-anchor="middle" fill="#ff7000" font-size="12">🇪🇺 Complète</text>
+  
+  <!-- Support Français -->
+  <rect x="50" y="240" width="150" height="35" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="125" y="262" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">Support FR</text>
+  
+  <rect x="200" y="240" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="275" y="262" text-anchor="middle" fill="#10b981" font-size="12">🇫🇷 Bon</text>
+  
+  <rect x="350" y="240" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="425" y="262" text-anchor="middle" fill="#3b82f6" font-size="12">🇫🇷 Bon</text>
+  
+  <rect x="500" y="240" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="575" y="262" text-anchor="middle" fill="#ff7000" font-size="12">🇫🇷 Excellent</text>
+  
+  <!-- Facilité d'usage -->
+  <rect x="50" y="275" width="150" height="35" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="125" y="297" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">Facilité</text>
+  
+  <rect x="200" y="275" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="275" y="297" text-anchor="middle" fill="#10b981" font-size="12">⚡⚡⚡⚡⚡</text>
+  
+  <rect x="350" y="275" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="425" y="297" text-anchor="middle" fill="#3b82f6" font-size="12">⚡⚡⚡</text>
+  
+  <rect x="500" y="275" width="150" height="35" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="575" y="297" text-anchor="middle" fill="#ff7000" font-size="12">⚡⚡⚡⚡</text>
+  
+  <!-- Recommandations par cas d'usage -->
+  <text x="400" y="350" text-anchor="middle" fill="#1e293b" font-size="18" font-weight="bold">Recommandations par cas d'usage</text>
+  
+  <!-- Education -->
+  <rect x="50" y="370" width="200" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="10"/>
+  <text x="150" y="395" text-anchor="middle" fill="#f59e0b" font-size="14" font-weight="bold">🎓 Éducation</text>
+  <text x="150" y="415" text-anchor="middle" fill="#6b7280" font-size="12">Mistral AI</text>
+  <text x="150" y="430" text-anchor="middle" fill="#6b7280" font-size="10">Safe Prompt + FR</text>
+  
+  <!-- Enterprise -->
+  <rect x="300" y="370" width="200" height="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="10"/>
+  <text x="400" y="395" text-anchor="middle" fill="#3b82f6" font-size="14" font-weight="bold">🏢 Entreprise</text>
+  <text x="400" y="415" text-anchor="middle" fill="#6b7280" font-size="12">Azure OpenAI</text>
+  <text x="400" y="430" text-anchor="middle" fill="#6b7280" font-size="10">Sécurité maximale</text>
+  
+  <!-- Prototypage -->
+  <rect x="550" y="370" width="200" height="80" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="10"/>
+  <text x="650" y="395" text-anchor="middle" fill="#22c55e" font-size="14" font-weight="bold">⚡ Prototypage</text>
+  <text x="650" y="415" text-anchor="middle" fill="#6b7280" font-size="12">OpenAI</text>
+  <text x="650" y="430" text-anchor="middle" fill="#6b7280" font-size="10">Rapidité + Simplicité</text>
+  
+  <!-- Prix comparison -->
+  <text x="400" y="490" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">Estimation de coûts (1000 tokens)</text>
+  
+  <rect x="100" y="510" width="180" height="40" fill="#dcfce7" stroke="#22c55e" rx="5"/>
+  <text x="190" y="525" text-anchor="middle" fill="#22c55e" font-size="12">OpenAI GPT-4</text>
+  <text x="190" y="540" text-anchor="middle" fill="#22c55e" font-size="12">~$0.03</text>
+  
+  <rect x="310" y="510" width="180" height="40" fill="#dbeafe" stroke="#3b82f6" rx="5"/>
+  <text x="400" y="525" text-anchor="middle" fill="#3b82f6" font-size="12">Azure OpenAI</text>
+  <text x="400" y="540" text-anchor="middle" fill="#3b82f6" font-size="12">~$0.035</text>
+  
+  <rect x="520" y="510" width="180" height="40" fill="#fef3c7" stroke="#ff7000" rx="5"/>
+  <text x="610" y="525" text-anchor="middle" fill="#ff7000" font-size="12">Mistral Large</text>
+  <text x="610" y="540" text-anchor="middle" fill="#ff7000" font-size="12">~$0.008</text>
+</svg>

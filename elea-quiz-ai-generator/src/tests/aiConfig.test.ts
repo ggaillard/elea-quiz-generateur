@@ -2,11 +2,13 @@ import { describe, it, expect } from 'vitest';
 import { 
   createAIConfig, 
   validateAIConfig, 
-  getMistralRecommendations,
-  getProviderCost,
-  getSupportedModels 
+  recommendModel,
+  estimateRequestCost,
+  supportsFeature,
+  getTokenLimit,
+  AVAILABLE_MODELS
 } from '../utils/aiConfig';
-import { AIProvider } from '../types';
+import { AIConfig } from '../types';
 
 describe('Configuration IA - Utilitaires', () => {
   describe('createAIConfig', () => {
@@ -37,128 +39,182 @@ describe('Configuration IA - Utilitaires', () => {
     });
 
     it('devrait créer une configuration valide pour Azure OpenAI', () => {
-      const config = createAIConfig('azure', 'test-key', {
+      const config = createAIConfig('azure-openai', 'test-key', {
         endpoint: 'https://test.openai.azure.com',
-        model: 'gpt-4',
-        deploymentName: 'gpt-4-deployment'
+        model: 'gpt-4'
       });
       
-      expect(config.provider).toBe('azure');
+      expect(config.provider).toBe('azure-openai');
       expect(config.apiKey).toBe('test-key');
       expect(config.endpoint).toBe('https://test.openai.azure.com');
-      expect(config.deploymentName).toBe('gpt-4-deployment');
+      expect(config.model).toBe('gpt-4');
     });
   });
 
   describe('validateAIConfig', () => {
     it('devrait valider une configuration Mistral valide', () => {
-      const config = {
-        provider: 'mistral' as AIProvider,
+      const config: AIConfig = {
+        provider: 'mistral',
         apiKey: 'test-key',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
-      const result = validateAIConfig(config);
-      expect(result.isValid).toBe(true);
-      expect(result.errors).toHaveLength(0);
+      const errors = validateAIConfig(config);
+      expect(errors).toHaveLength(0);
     });
 
     it('devrait détecter une clé API manquante', () => {
-      const config = {
-        provider: 'mistral' as AIProvider,
+      const config: AIConfig = {
+        provider: 'mistral',
         apiKey: '',
-        model: 'mistral-large-latest'
+        model: 'mistral-large-latest',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
-      const result = validateAIConfig(config);
-      expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('Clé API manquante');
+      const errors = validateAIConfig(config);
+      expect(errors.length).toBeGreaterThan(0);
+      expect(errors).toContain('Clé API requise');
     });
 
     it('devrait détecter un modèle non supporté', () => {
-      const config = {
-        provider: 'mistral' as AIProvider,
+      const config: AIConfig = {
+        provider: 'mistral',
         apiKey: 'test-key',
-        model: 'invalid-model'
+        model: 'invalid-model',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
       };
       
-      const result = validateAIConfig(config);
-      expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('Modèle non supporté pour Mistral');
+      const errors = validateAIConfig(config);
+      expect(errors.length).toBeGreaterThan(0);
+      expect(errors.some(error => error.includes('non disponible'))).toBe(true);
     });
 
     it('devrait détecter un endpoint Azure manquant', () => {
-      const config = {
-        provider: 'azure' as AIProvider,
+      const config: AIConfig = {
+        provider: 'azure-openai',
         apiKey: 'test-key',
-        model: 'gpt-4'
+        model: 'gpt-4',
+        temperature: 0.7,
+        maxTokens: 2000,
+        topP: 0.9
         // endpoint manquant
       };
       
-      const result = validateAIConfig(config);
-      expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('Endpoint Azure manquant');
+      const errors = validateAIConfig(config);
+      expect(errors.length).toBeGreaterThan(0);
+      expect(errors).toContain('Endpoint Azure OpenAI requis');
     });
   });
 
-  describe('getMistralRecommendations', () => {
-    it('devrait recommander mistral-large-latest pour une utilisation avancée', () => {
-      const recommendations = getMistralRecommendations('advanced', 'high');
-      expect(recommendations.model).toBe('mistral-large-latest');
-      expect(recommendations.safePrompt).toBe(true);
+  describe('recommendModel', () => {
+    it('devrait recommander un modèle excellent pour Mistral', () => {
+      const model = recommendModel('mistral', {
+        quality: 'excellent',
+        features: ['safe-prompt']
+      });
+      
+      expect(model).toBe('mistral-large-latest');
     });
 
-    it('devrait recommander mistral-medium-latest pour une utilisation équilibrée', () => {
-      const recommendations = getMistralRecommendations('intermediate', 'medium');
-      expect(recommendations.model).toBe('mistral-medium-latest');
-      expect(recommendations.temperature).toBe(0.7);
+    it('devrait recommander un modèle good pour OpenAI', () => {
+      const model = recommendModel('openai', {
+        quality: 'good',
+        maxCost: 0.01
+      });
+      
+      expect(model).toBe('gpt-3.5-turbo');
     });
 
-    it('devrait recommander mistral-small-latest pour une utilisation économique', () => {
-      const recommendations = getMistralRecommendations('beginner', 'low');
-      expect(recommendations.model).toBe('mistral-small-latest');
-      expect(recommendations.temperature).toBe(0.5);
+    it('devrait recommander un modèle basé sur les tokens', () => {
+      const model = recommendModel('mistral', {
+        maxTokens: 50000
+      });
+      
+      expect(model).toBe('open-mixtral-8x22b');
     });
   });
 
-  describe('getProviderCost', () => {
+  describe('estimateRequestCost', () => {
     it('devrait retourner le coût estimé pour Mistral', () => {
-      const cost = getProviderCost('mistral', 'mistral-large-latest', 1000);
+      const cost = estimateRequestCost('mistral-large-latest', 1000, 500);
       expect(cost).toBeGreaterThan(0);
       expect(typeof cost).toBe('number');
     });
 
     it('devrait retourner le coût estimé pour OpenAI', () => {
-      const cost = getProviderCost('openai', 'gpt-4', 1000);
+      const cost = estimateRequestCost('gpt-4', 1000, 500);
       expect(cost).toBeGreaterThan(0);
       expect(typeof cost).toBe('number');
     });
 
-    it('devrait retourner 0 pour un provider inconnu', () => {
-      const cost = getProviderCost('unknown' as AIProvider, 'unknown-model', 1000);
+    it('devrait retourner 0 pour un modèle inconnu', () => {
+      const cost = estimateRequestCost('unknown-model', 1000, 500);
       expect(cost).toBe(0);
     });
   });
 
-  describe('getSupportedModels', () => {
-    it('devrait retourner les modèles supportés pour Mistral', () => {
-      const models = getSupportedModels('mistral');
+  describe('supportsFeature', () => {
+    it('devrait détecter le support de safe-prompt pour Mistral', () => {
+      const supports = supportsFeature('mistral-large-latest', 'safe-prompt');
+      expect(supports).toBe(true);
+    });
+
+    it('devrait détecter le support de json-mode pour OpenAI', () => {
+      const supports = supportsFeature('gpt-4', 'json-mode');
+      expect(supports).toBe(true);
+    });
+
+    it('devrait retourner false pour une fonctionnalité non supportée', () => {
+      const supports = supportsFeature('mistral-tiny', 'json-mode');
+      expect(supports).toBe(false);
+    });
+  });
+
+  describe('getTokenLimit', () => {
+    it('devrait retourner la limite de tokens pour Mistral', () => {
+      const limit = getTokenLimit('mistral-large-latest');
+      expect(limit).toBe(32768);
+    });
+
+    it('devrait retourner la limite de tokens pour OpenAI', () => {
+      const limit = getTokenLimit('gpt-4');
+      expect(limit).toBe(8192);
+    });
+
+    it('devrait retourner la limite par défaut pour un modèle inconnu', () => {
+      const limit = getTokenLimit('unknown-model');
+      expect(limit).toBe(4096);
+    });
+  });
+
+  describe('AVAILABLE_MODELS', () => {
+    it('devrait contenir les modèles Mistral', () => {
+      const models = AVAILABLE_MODELS['mistral'];
       expect(models).toContain('mistral-large-latest');
       expect(models).toContain('mistral-medium-latest');
       expect(models).toContain('mistral-small-latest');
       expect(models.length).toBeGreaterThan(0);
     });
 
-    it('devrait retourner les modèles supportés pour OpenAI', () => {
-      const models = getSupportedModels('openai');
+    it('devrait contenir les modèles OpenAI', () => {
+      const models = AVAILABLE_MODELS['openai'];
       expect(models).toContain('gpt-4');
       expect(models).toContain('gpt-3.5-turbo');
       expect(models.length).toBeGreaterThan(0);
     });
 
-    it('devrait retourner une liste vide pour un provider inconnu', () => {
-      const models = getSupportedModels('unknown' as AIProvider);
-      expect(models).toEqual([]);
+    it('devrait contenir les modèles Azure OpenAI', () => {
+      const models = AVAILABLE_MODELS['azure-openai'];
+      expect(models).toContain('gpt-4');
+      expect(models).toContain('gpt-35-turbo');
+      expect(models.length).toBeGreaterThan(0);
     });
   });
 });

@@ -1,0 +1,85 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" fill="#1e293b" font-size="22" font-weight="bold">Configuration Mistral AI - Spécificités Éducatives</text>
+  
+  <!-- Main Configuration Panel -->
+  <rect x="50" y="60" width="700" height="400" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  
+  <!-- Mistral Header -->
+  <rect x="70" y="80" width="660" height="50" fill="#ff7000" rx="5"/>
+  <text x="400" y="105" text-anchor="middle" fill="white" font-size="18" font-weight="bold">🇪🇺 Mistral AI - Configuration Éducative</text>
+  <text x="400" y="122" text-anchor="middle" fill="#fff7ed" font-size="12">Provider européen optimisé pour l'enseignement</text>
+  
+  <!-- Configuration Sections -->
+  
+  <!-- Model Selection -->
+  <text x="90" y="165" fill="#1e293b" font-size="16" font-weight="bold">1. Sélection du modèle</text>
+  
+  <rect x="100" y="175" width="180" height="60" fill="#fef3c7" stroke="#f59e0b" rx="5"/>
+  <text x="190" y="195" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="bold">mistral-large-latest</text>
+  <text x="190" y="210" text-anchor="middle" fill="#92400e" font-size="10">Haute qualité</text>
+  <text x="190" y="225" text-anchor="middle" fill="#92400e" font-size="10">Raisonnement complexe</text>
+  
+  <rect x="300" y="175" width="180" height="60" fill="#f0fdf4" stroke="#22c55e" rx="5"/>
+  <text x="390" y="195" text-anchor="middle" fill="#22c55e" font-size="12" font-weight="bold">mistral-medium-latest</text>
+  <text x="390" y="210" text-anchor="middle" fill="#15803d" font-size="10">Équilibre optimal</text>
+  <text x="390" y="225" text-anchor="middle" fill="#15803d" font-size="10">Recommandé 🌟</text>
+  
+  <rect x="500" y="175" width="180" height="60" fill="#dbeafe" stroke="#3b82f6" rx="5"/>
+  <text x="590" y="195" text-anchor="middle" fill="#3b82f6" font-size="12" font-weight="bold">mistral-small-latest</text>
+  <text x="590" y="210" text-anchor="middle" fill="#1d4ed8" font-size="10">Usage intensif</text>
+  <text x="590" y="225" text-anchor="middle" fill="#1d4ed8" font-size="10">Économique</text>
+  
+  <!-- Safety Settings -->
+  <text x="90" y="270" fill="#1e293b" font-size="16" font-weight="bold">2. Paramètres de sécurité éducative</text>
+  
+  <rect x="100" y="280" width="280" height="80" fill="#fef2f2" stroke="#ef4444" rx="5"/>
+  <text x="240" y="300" text-anchor="middle" fill="#ef4444" font-size="14" font-weight="bold">🔒 Safe Prompt</text>
+  <text x="240" y="320" text-anchor="middle" fill="#7f1d1d" font-size="11">✅ Activé par défaut</text>
+  <text x="240" y="335" text-anchor="middle" fill="#7f1d1d" font-size="11">• Filtre contenu inapproprié</text>
+  <text x="240" y="350" text-anchor="middle" fill="#7f1d1d" font-size="11">• Adapté au contexte éducatif</text>
+  
+  <rect x="400" y="280" width="280" height="80" fill="#f0f9ff" stroke="#0ea5e9" rx="5"/>
+  <text x="540" y="300" text-anchor="middle" fill="#0ea5e9" font-size="14" font-weight="bold">🎯 Optimisation FR</text>
+  <text x="540" y="320" text-anchor="middle" fill="#0c4a6e" font-size="11">✅ Performance française</text>
+  <text x="540" y="335" text-anchor="middle" fill="#0c4a6e" font-size="11">• Grammaire et syntaxe</text>
+  <text x="540" y="350" text-anchor="middle" fill="#0c4a6e" font-size="11">• Contexte culturel</text>
+  
+  <!-- Generation Parameters -->
+  <text x="90" y="390" fill="#1e293b" font-size="16" font-weight="bold">3. Paramètres de génération</text>
+  
+  <!-- Temperature -->
+  <text x="110" y="415" fill="#374151" font-size="12">Température:</text>
+  <rect x="180" y="405" width="100" height="20" fill="#f3f4f6" stroke="#d1d5db" rx="10"/>
+  <rect x="180" y="405" width="70" height="20" fill="#10b981" rx="10"/>
+  <text x="230" y="418" text-anchor="middle" fill="white" font-size="10" font-weight="bold">0.7</text>
+  <text x="290" y="418" fill="#6b7280" font-size="10">Créativité contrôlée</text>
+  
+  <!-- Max Tokens -->
+  <text x="110" y="440" fill="#374151" font-size="12">Max Tokens:</text>
+  <rect x="180" y="430" width="60" height="20" fill="#ede9fe" stroke="#8b5cf6" rx="3"/>
+  <text x="210" y="443" text-anchor="middle" fill="#8b5cf6" font-size="10" font-weight="bold">2000</text>
+  <text x="250" y="443" fill="#6b7280" font-size="10">Questions détaillées</text>
+  
+  <!-- Question Count -->
+  <text x="400" y="415" fill="#374151" font-size="12">Nombre de questions:</text>
+  <rect x="520" y="405" width="50" height="20" fill="#fef3c7" stroke="#f59e0b" rx="3"/>
+  <text x="545" y="418" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="bold">10</text>
+  <text x="580" y="418" fill="#6b7280" font-size="10">Recommandé</text>
+  
+  <!-- Language -->
+  <text x="400" y="440" fill="#374151" font-size="12">Langue:</text>
+  <rect x="520" y="430" width="50" height="20" fill="#dbeafe" stroke="#3b82f6" rx="3"/>
+  <text x="545" y="443" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="bold">FR</text>
+  <text x="580" y="443" fill="#6b7280" font-size="10">Français</text>
+  
+  <!-- Cost Estimation -->
+  <rect x="600" y="390" width="120" height="70" fill="#f7fee7" stroke="#65a30d" rx="5"/>
+  <text x="660" y="410" text-anchor="middle" fill="#65a30d" font-size="12" font-weight="bold">💰 Coût estimé</text>
+  <text x="660" y="425" text-anchor="middle" fill="#365314" font-size="10">10 questions</text>
+  <text x="660" y="440" text-anchor="middle" fill="#365314" font-size="20" font-weight="bold">~€0.02</text>
+  <text x="660" y="455" text-anchor="middle" fill="#365314" font-size="10">Très économique</text>
+</svg>

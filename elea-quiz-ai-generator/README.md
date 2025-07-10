@@ -420,9 +420,9 @@ const openAIClient = new OpenAIClient(endpoint, credential);
 ## 📞 Support
 
 ### Documentation
-- [Guide d'intégration](./docs/INTEGRATION.md)
-- [API Documentation](./docs/API.md)
-- [Prompts IA](./docs/PROMPTS.md)
+- [Guide d'intégration Mistral](./docs/MISTRAL_INTEGRATION.md)
+- [Documentation complète](./docs/COMPLETE_DOCUMENTATION.md)
+- [Diagrammes architecture](./docs/diagrams/)
 
 ### Contribution
 1. Fork le projet

@@ -1,0 +1,69 @@
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#1e293b" font-size="24" font-weight="bold">Interface Utilisateur - Éléa Quiz Generator</text>
+  
+  <!-- Main Container -->
+  <rect x="50" y="60" width="800" height="500" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  
+  <!-- Header -->
+  <rect x="70" y="80" width="760" height="60" fill="#1e293b" rx="5"/>
+  <text x="450" y="105" text-anchor="middle" fill="white" font-size="18" font-weight="bold">🤖 Éléa Quiz AI Generator</text>
+  <text x="450" y="125" text-anchor="middle" fill="#94a3b8" font-size="12">Générateur de QCM intelligent avec IA</text>
+  
+  <!-- Navigation Tabs -->
+  <rect x="70" y="150" width="120" height="35" fill="#3b82f6" rx="5"/>
+  <text x="130" y="172" text-anchor="middle" fill="white" font-size="12" font-weight="bold">📁 Upload</text>
+  
+  <rect x="200" y="150" width="120" height="35" fill="#e2e8f0" stroke="#94a3b8" rx="5"/>
+  <text x="260" y="172" text-anchor="middle" fill="#64748b" font-size="12">⚙️ Config</text>
+  
+  <rect x="330" y="150" width="120" height="35" fill="#e2e8f0" stroke="#94a3b8" rx="5"/>
+  <text x="390" y="172" text-anchor="middle" fill="#64748b" font-size="12">🧠 Génération</text>
+  
+  <rect x="460" y="150" width="120" height="35" fill="#e2e8f0" stroke="#94a3b8" rx="5"/>
+  <text x="520" y="172" text-anchor="middle" fill="#64748b" font-size="12">✏️ Révision</text>
+  
+  <rect x="590" y="150" width="120" height="35" fill="#e2e8f0" stroke="#94a3b8" rx="5"/>
+  <text x="650" y="172" text-anchor="middle" fill="#64748b" font-size="12">📤 Export</text>
+  
+  <!-- Main Content Area -->
+  <!-- Upload Section -->
+  <rect x="90" y="210" width="720" height="280" fill="#f8fafc" stroke="#e2e8f0" stroke-dasharray="10,5" rx="10"/>
+  
+  <!-- Upload Icon -->
+  <circle cx="450" cy="300" r="40" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+  <text x="450" y="310" text-anchor="middle" fill="#3b82f6" font-size="30">📄</text>
+  
+  <text x="450" y="360" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">Glissez-déposez votre document ici</text>
+  <text x="450" y="380" text-anchor="middle" fill="#64748b" font-size="12">Formats supportés: PDF, DOCX, TXT (max 10MB)</text>
+  
+  <!-- Browse Button -->
+  <rect x="375" y="400" width="150" height="40" fill="#3b82f6" rx="20"/>
+  <text x="450" y="425" text-anchor="middle" fill="white" font-size="14" font-weight="bold">📁 Parcourir</text>
+  
+  <!-- Side Panel - AI Provider Selector -->
+  <rect x="90" y="510" width="720" height="60" fill="#ffffff" stroke="#e2e8f0" rx="5"/>
+  <text x="110" y="530" fill="#1e293b" font-size="14" font-weight="bold">Provider IA:</text>
+  
+  <!-- Provider Options -->
+  <rect x="110" y="540" width="80" height="25" fill="#dcfce7" stroke="#22c55e" rx="3"/>
+  <text x="150" y="555" text-anchor="middle" fill="#22c55e" font-size="11">OpenAI</text>
+  
+  <rect x="200" y="540" width="80" height="25" fill="#dbeafe" stroke="#3b82f6" rx="3"/>
+  <text x="240" y="555" text-anchor="middle" fill="#3b82f6" font-size="11">Azure</text>
+  
+  <rect x="290" y="540" width="80" height="25" fill="#fef3c7" stroke="#ff7000" rx="3"/>
+  <text x="330" y="555" text-anchor="middle" fill="#ff7000" font-size="11" font-weight="bold">Mistral ✨</text>
+  
+  <!-- Configuration Summary -->
+  <text x="400" y="530" fill="#1e293b" font-size="14" font-weight="bold">Configuration:</text>
+  <text x="400" y="545" fill="#64748b" font-size="11">Type: QCM • Niveau: Intermédiaire</text>
+  <text x="400" y="558" fill="#64748b" font-size="11">Questions: 10 • Langue: Français</text>
+  
+  <!-- Generate Button -->
+  <rect x="600" y="530" width="100" height="30" fill="#10b981" rx="15"/>
+  <text x="650" y="550" text-anchor="middle" fill="white" font-size="12" font-weight="bold">🚀 Générer</text>
+</svg>
