@@ -20,7 +20,10 @@
     "mistral:generate": "node scripts/mistral-quiz-generator.cjs generate",
     "mistral:models": "node scripts/mistral-quiz-generator.cjs models",
     "mistral:init": "node scripts/mistral-quiz-generator.cjs init",
-    "mistral:install": "./install-mistral.sh"
+    "mistral:install": "./install-mistral.sh",
+    "docs:screenshots": "./take-screenshots.sh",
+    "docs:placeholders": "./create-placeholders.sh",
+    "docs:serve": "npm run dev"
   },
   "dependencies": {
     "@azure/identity": "^4.0.1",
@@ -81,6 +84,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.35",
+    "puppeteer": "^19.11.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.0",
