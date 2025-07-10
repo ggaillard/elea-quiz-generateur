@@ -44,9 +44,9 @@ export function QuizBuilder() {
       case 'settings':
         return <QuizSettings />;
       case 'export':
-        return <ExportPanel />;
+        return <ExportPanel onClose={() => setViewMode('questions')} />;
       case 'import':
-        return <ImportPanel />;
+        return <ImportPanel onClose={() => setViewMode('questions')} />;
       default:
         return <WelcomeScreen />;
     }
@@ -58,14 +58,14 @@ export function QuizBuilder() {
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
         currentView={viewMode}
-        onViewChange={setViewMode}
+        onViewChange={(view: string) => setViewMode(view as ViewMode)}
       />
       
       <div className="flex-1 flex flex-col">
         <Header
           onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
           currentView={viewMode}
-          onViewChange={setViewMode}
+          onViewChange={(view: string) => setViewMode(view as ViewMode)}
         />
         
         <main className="flex-1 overflow-hidden">

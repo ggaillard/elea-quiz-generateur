@@ -63,7 +63,7 @@ export function QuizSettings() {
                     type="text"
                     value={state.currentQuiz.name}
                     onChange={(e) => {
-                      const updatedQuiz = { ...state.currentQuiz, name: e.target.value };
+                      const updatedQuiz = { ...state.currentQuiz, name: e.target.value } as Quiz;
                       updateQuiz(updatedQuiz);
                     }}
                     className="input w-full"
@@ -76,7 +76,7 @@ export function QuizSettings() {
                   <textarea
                     value={state.currentQuiz.description || ''}
                     onChange={(e) => {
-                      const updatedQuiz = { ...state.currentQuiz, description: e.target.value };
+                      const updatedQuiz = { ...state.currentQuiz, description: e.target.value } as Quiz;
                       updateQuiz(updatedQuiz);
                     }}
                     className="textarea w-full"
@@ -92,7 +92,7 @@ export function QuizSettings() {
                     type="text"
                     value={state.currentQuiz.category}
                     onChange={(e) => {
-                      const updatedQuiz = { ...state.currentQuiz, category: e.target.value };
+                      const updatedQuiz = { ...state.currentQuiz, category: e.target.value } as Quiz;
                       updateQuiz(updatedQuiz);
                     }}
                     className="input w-full"

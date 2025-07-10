@@ -463,12 +463,12 @@ export function generateCSV(quiz: Quiz, settings?: any): string {
   const rows = quiz.questions.map(question => {
     const baseData: Record<string, string> = {
       'Type': question.type,
-      'Titre': question.title,
-      'Question': question.text,
-      'Note': question.defaultGrade?.toString() || '1',
-      'Pénalité': question.penalty?.toString() || '0',
-      'Feedback général': question.generalFeedback || '',
-      'Tags': question.tags?.join(',') || '',
+      'Titre': (question as any).title || (question as any).name || '',
+      'Question': (question as any).text || (question as any).questionText || '',
+      'Note': (question as any).defaultGrade?.toString() || '1',
+      'Pénalité': (question as any).penalty?.toString() || '0',
+      'Feedback général': (question as any).generalFeedback || '',
+      'Tags': (question as any).tags?.join(',') || '',
       'Options spéciales': ''
     };
 

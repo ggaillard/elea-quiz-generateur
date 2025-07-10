@@ -53,7 +53,10 @@ export function QuestionEditor() {
 
   const updateLocalQuestion = (updates: Partial<QuestionUnion>) => {
     if (localQuestion) {
-      setLocalQuestion(prev => prev ? { ...prev, ...updates, modified: new Date() } : null);
+      setLocalQuestion(prev => {
+        if (!prev) return null;
+        return { ...prev, ...updates, modified: new Date() } as QuestionUnion;
+      });
       setHasUnsavedChanges(true);
     }
   };

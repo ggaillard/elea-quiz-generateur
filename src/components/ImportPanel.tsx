@@ -14,7 +14,7 @@ export const ImportPanel: React.FC<ImportPanelProps> = ({ onClose }) => {
     throw new Error('ImportPanel must be used within a QuizProvider');
   }
   
-  const { state, addNotification } = context;
+  const { state, addNotification, addQuestion } = context;
   const [importFormat, setImportFormat] = useState<'xml' | 'csv'>('csv');
   const [importFile, setImportFile] = useState<File | null>(null);
   const [isImporting, setIsImporting] = useState(false);
