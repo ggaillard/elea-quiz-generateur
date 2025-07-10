@@ -430,10 +430,4 @@ const openAIClient = new OpenAIClient(endpoint, credential);
 3. Committer les changements
 4. Ouvrir une Pull Request
 
-## 📄 Licence
 
-MIT License - voir [LICENSE](LICENSE) pour plus de détails.
-
----
-
-**Développé pour la communauté éducative Éléa** 🎓
